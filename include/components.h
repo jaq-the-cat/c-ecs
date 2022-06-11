@@ -30,7 +30,6 @@ typedef struct {
 } homosexuality;
 
 typedef enum {
-  nope_T = 0, // null type must be 0
   POSITION_T,
   COLLIDER_T,
   HOMOSEXUALITY_T

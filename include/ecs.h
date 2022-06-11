@@ -8,4 +8,5 @@ typedef struct {
   void *content;
 } component_t;
 
-component_t component(uint16_t type, void *data, unsigned long size);
+component_t _component(uint16_t type, void *data, unsigned long size);
+#define COMPONENT(datatype, type, data) _component(type, &data, sizeof(datatype))

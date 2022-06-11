@@ -23,10 +23,6 @@ void c_print(component_t *c){
         printf("HOMOSEXUALITY{%lf}\n", _homo->level);
         break;
       }
-    case nope_T:
-      {
-        printf("nope_T{}\n");
-      }
     default:
       break;
   }
@@ -37,12 +33,9 @@ void iter(component_t *c) {
 }
 
 int main(int argc, char* argv[]) {
-  component_t pos = component(
-        POSITION_T, &P(6, 4), sizeof(position));
-  component_t body = component(
-        COLLIDER_T, &CIRC_COLLIDER(P(0, 0), 5), sizeof(collider));
-  component_t head = component(
-        COLLIDER_T, &RECT_COLLIDER(P(-2, 5), 4, 4), sizeof(collider));
+  component_t pos = COMPONENT(position, POSITION_T, P(6, 4));
+  component_t body = COMPONENT(collider, COLLIDER_T, CIRC_COLLIDER(P(0, 0), 5));
+  component_t head = COMPONENT(collider, COLLIDER_T, RECT_COLLIDER(P(-2, 5), 4, 4));
 
   c_print(&pos);
   c_print(&body);
