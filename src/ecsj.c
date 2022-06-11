@@ -1,4 +1,4 @@
-#include "ecs.h"
+#include "ecsj.h"
 
 component_t _component(unsigned int type, void *data, unsigned long size) {
   component_t _c = (component_t) {

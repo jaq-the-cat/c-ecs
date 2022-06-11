@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ecs.h"
+#include "ecsj.h"
 #include "components.h"
 
 void c_print(component_t *c){
