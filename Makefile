@@ -1,14 +1,10 @@
-ALLSRC  := $(wildcard src/*.c)
-SRC     := $(filter-out src/test.c, $(ALLSRC))
-TESTSRC := $(filter-out src/main.c, $(ALLSRC))
-#PKGS    :=
+SRC  		:= $(wildcard src/*.c)
 CC      := gcc
 CFLAGS  := -Iinclude
-CFLAGS  += -Wall -O2 -std=gnu17# $(shell pkg-config --cflags $(PKGS))
-#LDFLAGS := $(shell pkg-config --libs $(PKGS))
-BINARY  := a.out
+CFLAGS  += -Wall -O3 -std=gnu17
+BINARY  := ecsj
 
-.PHONY: dev clean compile cnr
+.PHONY: dev clean compile
 
 default: compile
 

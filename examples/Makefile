@@ -1,14 +1,14 @@
 ALLSRC  := $(wildcard src/*.c)
 SRC     := $(filter-out src/test.c, $(ALLSRC))
 TESTSRC := $(filter-out src/main.c, $(ALLSRC))
-PKGS    :=
+#PKGS    :=
 CC      := gcc
 CFLAGS  := -Iinclude
-CFLAGS  += -Wall -O2 -std=gnu17 $(shell pkg-config --cflags $(PKGS))
-LDFLAGS := $(shell pkg-config --libs $(PKGS))
+CFLAGS  += -Wall -O2 -std=gnu17# $(shell pkg-config --cflags $(PKGS))
+#LDFLAGS := $(shell pkg-config --libs $(PKGS))
 BINARY  := a.out
 
-.PHONY: dev clean compile cnr
+.PHONY: dev clean compile test-compile cnr tnr
 
 default: compile
 

@@ -1,4 +1,4 @@
-# c-ecs
+# ecsj
 
 Simple Entity Component System made in C
 
