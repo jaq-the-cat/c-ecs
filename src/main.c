@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ecs.h"
+#include "components.h"
 
 void c_print(component *c){
   switch (c->type) {
@@ -37,12 +38,13 @@ void iter(component *c) {
 
 int main(int argc, char* argv[]) {
   CS_INIT(cs);
-  COMPONENT(POSITION_T, pos, P(6, 4));
-  COMPONENT(COLLIDER_T, circ_col, CIRC_COLLIDER(P(0, 0), 5));
-  COMPONENT(COLLIDER_T, rect_col, RECT_COLLIDER(P(-2, 5), 4, 4));
-  cs_add(cs, pos);
-  cs_add(cs, circ_col);
-  cs_add(cs, rect_col);
+  cs_add(cs, c_create(
+        POSITION_T, &P(6, 4), sizeof(position)));
+  cs_add(cs, c_create(
+        COLLIDER_T, &CIRC_COLLIDER(P(0, 0), 5), sizeof(collider)));
+  cs_add(cs, c_create(
+        COLLIDER_T, &RECT_COLLIDER(P(-2, 5), 4, 4), sizeof(collider)));
+
   cs_iter(cs, iter);
   return 0;
 }
