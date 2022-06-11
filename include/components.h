@@ -8,6 +8,8 @@
 
 #define RECT_COLLIDER(root, width, height) (collider) {root, {.wh={width, height}}}
 
+typedef struct { double x, y; } point;
+
 // Declare components
 typedef point position;
 

@@ -3,7 +3,7 @@
 #include "ecs.h"
 #include "components.h"
 
-void c_print(component *c){
+void c_print(component_t *c){
   switch (c->type) {
     case POSITION_T:
       {
@@ -32,19 +32,20 @@ void c_print(component *c){
   }
 }
 
-void iter(component *c) {
+void iter(component_t *c) {
   c_print(c);
 }
 
 int main(int argc, char* argv[]) {
-  CS_INIT(cs);
-  cs_add(cs, c_create(
-        POSITION_T, &P(6, 4), sizeof(position)));
-  cs_add(cs, c_create(
-        COLLIDER_T, &CIRC_COLLIDER(P(0, 0), 5), sizeof(collider)));
-  cs_add(cs, c_create(
-        COLLIDER_T, &RECT_COLLIDER(P(-2, 5), 4, 4), sizeof(collider)));
+  component_t pos = component(
+        POSITION_T, &P(6, 4), sizeof(position));
+  component_t body = component(
+        COLLIDER_T, &CIRC_COLLIDER(P(0, 0), 5), sizeof(collider));
+  component_t head = component(
+        COLLIDER_T, &RECT_COLLIDER(P(-2, 5), 4, 4), sizeof(collider));
 
-  cs_iter(cs, iter);
+  c_print(&pos);
+  c_print(&body);
+  c_print(&head);
   return 0;
 }
