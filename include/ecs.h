@@ -16,7 +16,11 @@
   name.content = malloc(sizeof(data));\
   memcpy(name.content, &data, sizeof(data));
 
-#define POSITION(x, y) (position) {x, y}
+#define P(x, y) (point) {x, y}
+
+#define CIRC_COLLIDER(root, r) (collider) {root, {.radius=r}}
+
+#define RECT_COLLIDER(root, width, height) (collider) {root, {.wh={width, height}}}
 
 typedef enum {
   nope_T,
@@ -25,15 +29,15 @@ typedef enum {
   HOMOSEXUALITY_T
 } component_type;
 
+typedef struct { double x, y; } point;
+
 // Declare components
-typedef struct {
-  double x, y;
-} position;
+typedef point position;
 
 typedef struct {
-  double x, y;
+  position root;
   union {
-    double h, w;
+    position wh;
     double radius;
   } size; 
 } collider;
@@ -57,5 +61,4 @@ typedef struct components_node {
 } components;
 
 void cs_add(components *cs, component c);
-void cs_delete(components *cs, component *c);
 void cs_iter(components *cs, void (*func)());
