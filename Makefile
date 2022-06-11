@@ -21,16 +21,3 @@ clean:
 
 compile: $(SRC)
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $(BINARY)
-
-test-compile: $(TESTSRC)
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $(BINARY)
-
-cnr: $(SRC)
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $(BINARY)
-	./$(BINARY)
-	$(RM) *.o $(BINARY)
-
-tnr: $(TESTSRC)
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $(BINARY)
-	./$(BINARY)
-	$(RM) *.o $(BINARY)
