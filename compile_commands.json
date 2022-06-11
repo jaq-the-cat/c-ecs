@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-Wall",
+      "-O2",
+      "-std=gnu17",
+      "-o",
+      "a.out",
+      "src/ecs.c"
+    ],
+    "directory": "/home/jaqi/dev/c-ecs",
+    "file": "/home/jaqi/dev/c-ecs/src/ecs.c",
+    "output": "/home/jaqi/dev/c-ecs/a.out"
+  },
+  {
+    "arguments": [
+      "/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-Wall",
+      "-O2",
+      "-std=gnu17",
+      "-o",
+      "a.out",
+      "src/main.c"
+    ],
+    "directory": "/home/jaqi/dev/c-ecs",
+    "file": "/home/jaqi/dev/c-ecs/src/main.c",
+    "output": "/home/jaqi/dev/c-ecs/a.out"
+  }
+]
