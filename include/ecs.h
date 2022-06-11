@@ -1,10 +1,28 @@
 #pragma once
 #include <stdbool.h>
+#include <string.h>
+
+#define CS_INIT(cs)\
+  components *cs;\
+  cs = malloc(sizeof(components));\
+  cs->c = (component) {nope_T, NULL};\
+  cs->next = NULL;
+
+#define COMPONENT(type, name, data)\
+  component name = (component) {\
+    type,\
+    NULL,\
+  };\
+  name.content = malloc(sizeof(data));\
+  memcpy(name.content, &data, sizeof(data));
+
+#define POSITION(x, y) (position) {x, y}
 
 typedef enum {
-  POSITION,
-  COLLIDER,
-  HOMOSEXUALITY
+  nope_T,
+  POSITION_T,
+  COLLIDER_T,
+  HOMOSEXUALITY_T
 } component_type;
 
 // Declare components
@@ -34,15 +52,10 @@ typedef struct {
 } component;
 
 typedef struct components_node {
-  component *c;
+  component c;
   struct components_node *next;
 } components;
 
-#define C_INIT(cs)\
-  cs = malloc(sizeof(components));\
-  cs->c = NULL;\
-  cs->next = NULL;
-
-void c_add(components *cs, component c);
-void c_delete(components *cs, component *c);
-void c_iter(components *cs, void (*func)());
+void cs_add(components *cs, component c);
+void cs_delete(components *cs, component *c);
+void cs_iter(components *cs, void (*func)());
