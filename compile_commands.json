@@ -5,14 +5,14 @@
       "-c",
       "-Iinclude",
       "-Wall",
-      "-O2",
+      "-O3",
       "-std=gnu17",
       "-o",
-      "a.out",
-      "src/ecs.c"
+      "ecsj",
+      "src/ecsj.c"
     ],
-    "directory": "/home/jaqi/dev/c-ecs",
-    "file": "/home/jaqi/dev/c-ecs/src/ecs.c",
-    "output": "/home/jaqi/dev/c-ecs/a.out"
+    "directory": "/home/jaqi/dev/ecsj",
+    "file": "/home/jaqi/dev/ecsj/src/ecsj.c",
+    "output": "/home/jaqi/dev/ecsj/ecsj"
   }
 ]
