@@ -41,10 +41,24 @@ void ecsj_entity_add_component(ecsj_entity *e, ecsj_component component) {
   ecsj_entity_expand(e);
 }
 
-void ecsj_entity_on_component_of_type(ecsj_entity *e, unsigned int type, void (*func)(ecsj_component* component)) {
+void ecsj_entity_on_components_of_type(ecsj_entity *e, unsigned int type, void (*func)(ecsj_component* component)) {
   for (unsigned short i=0; i<e->len; i++) {
     if (e->components[i].type == type) {
       func(&e->components[i]);
+    }
+  }
+}
+
+void ecsj_on_entities_with_components(ecsj_entity *entity_array[], unsigned int entity_array_len, unsigned int type_array[], unsigned int type_array_len, void (*func)(ecsj_entity* e)) {
+  int i=0;
+  for (; i<entity_array_len; i++) {
+    for (int k=0; i<entity_array[k]->len; k++) {
+      unsigned char found = 0;
+      for (int j=0; j<type_array_len; j++) {
+        if (entity_array[i]->components[k].type == type_array[j]) {
+          found = 1;
+        }
+      }
     }
   }
 }
