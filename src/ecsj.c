@@ -1,10 +1,8 @@
 #include "ecsj.h"
+#include <stdbool.h>
 
 #define __DEF_CALLOC 4
 #define EXPAND(x) x+5
-
-#define true 1
-#define false 0
 
 static unsigned long __last_id = 0;
 
@@ -52,8 +50,8 @@ void ecsj_entity_on_components_of_type(ecsj_entity *e, unsigned int type, void (
   }
 }
 
-unsigned char entity_has_components(ecsj_entity *e, unsigned int types[], unsigned int types_len) {
-  unsigned char found;
+bool entity_has_components(ecsj_entity *e, unsigned int types[], unsigned int types_len) {
+  bool found;
   for (int i=0; i<e->len; i++) {
     found = false;
     for (int k=0; k<types_len; k++) {
