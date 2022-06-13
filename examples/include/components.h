@@ -1,5 +1,4 @@
 #pragma once
-#include "ecs.h"
 
 // component constructors
 #define P(x, y) (point) {x, y}

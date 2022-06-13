@@ -9,10 +9,26 @@
       "-std=gnu17",
       "-o",
       "a.out",
+      "src/ecsj.c"
+    ],
+    "directory": "/home/jaqi/dev/ecsj/examples",
+    "file": "/home/jaqi/dev/ecsj/examples/src/ecsj.c",
+    "output": "/home/jaqi/dev/ecsj/examples/a.out"
+  },
+  {
+    "arguments": [
+      "/bin/gcc",
+      "-c",
+      "-Iinclude",
+      "-Wall",
+      "-O2",
+      "-std=gnu17",
+      "-o",
+      "a.out",
       "src/main.c"
     ],
-    "directory": "/home/jaqi/dev/c-ecs/examples",
-    "file": "/home/jaqi/dev/c-ecs/examples/src/main.c",
-    "output": "/home/jaqi/dev/c-ecs/examples/a.out"
+    "directory": "/home/jaqi/dev/ecsj/examples",
+    "file": "/home/jaqi/dev/ecsj/examples/src/main.c",
+    "output": "/home/jaqi/dev/ecsj/examples/a.out"
   }
 ]
