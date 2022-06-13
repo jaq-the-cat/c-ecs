@@ -5,7 +5,17 @@
 typedef struct {
   unsigned int type;
   void *content;
-} component_t;
+} ecsj_component;
 
-component_t _component(unsigned int type, void *data, unsigned long size);
-#define COMPONENT(datatype, type, data) _component(type, &data, sizeof(datatype))
+typedef struct {
+  unsigned long id;
+  ecsj_component* components;
+  unsigned short len;
+  unsigned short __allocated;
+} ecsj_entity;
+
+ecsj_component __component(unsigned int type, void *data, unsigned long size);
+ecsj_entity __entity();
+
+#define ECSJ_ENTITY() __entity()
+#define ECSJ_COMPONENT(datatype, type, data) _component(type, &data, sizeof(datatype))
