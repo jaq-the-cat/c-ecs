@@ -33,12 +33,17 @@ void iter(ecsj_component *c) {
 }
 
 int main(int argc, char* argv[]) {
-  ecsj_component pos = ECSJ_COMPONENT(position, POSITION_T, P(6, 4));
-  ecsj_component body = ECSJ_COMPONENT(collider, COLLIDER_T, CIRC_COLLIDER(P(0, 0), 5));
-  ecsj_component head = ECSJ_COMPONENT(collider, COLLIDER_T, RECT_COLLIDER(P(-2, 5), 4, 4));
+  ecsj_entity e = ECSJ_ENTITY();
+  // position
+  ecsj_entity_add_component(&e, ECSJ_COMPONENT(position, POSITION_T, P(6, 4)));
+  // body collider
+  ecsj_entity_add_component(&e, ECSJ_COMPONENT(collider, COLLIDER_T, CIRC_COLLIDER(P(0, 0), 5)));
+  // head collider
+  ecsj_entity_add_component(&e, ECSJ_COMPONENT(collider, COLLIDER_T, RECT_COLLIDER(P(-2, 5), 4, 4)));
 
-  c_print(&pos);
-  c_print(&body);
-  c_print(&head);
+  c_print(&e.components[0]);
+  c_print(&e.components[1]);
+  c_print(&e.components[2]);
+
   return 0;
 }
