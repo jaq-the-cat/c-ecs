@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define ECSJ_COMP_DATA(varname, type, component)\
+  type varname;\
+  memcpy(&varname, component->content, sizeof(type));
+
 typedef struct {
   unsigned int type;
   void *content;
